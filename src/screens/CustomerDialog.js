@@ -100,13 +100,7 @@ const CustomerDialog = (props) => {
                             </FormControl>
                         </Grid>
                         <Grid item xs={3}>
-                        <FormControl component="fieldset">
-                            <FormLabel component="legend">Marital Status</FormLabel>
-                            <RadioGroup aria-label="status" name="status" value={props.status} onChange={props.changeStatus}>
-                                <FormControlLabel value="Single" control={<Radio />} label="Single" />
-                                <FormControlLabel value="Married" control={<Radio />} label="Married" />
-                            </RadioGroup>
-                        </FormControl>
+                      
                         </Grid>
                     </Grid>
                 </DialogContent>

@@ -18,10 +18,8 @@ const Customer = () => {
     const [firstname, setFirstName] = useState('');
     const [lastname, setLastName] = useState('');
     const [phonenumber, setPhoneNumber] =  useState('');
-    const [maritalstatus, setMaritalStatus] = useState('Single');
     const [gender, setGender] = useState('Female');
-    const [city, setCity] = useState('');
-    const [postcode, setPostCode] = useState('');
+   
     const override =`
         display: flex;
         align-items: center;
@@ -40,18 +38,12 @@ const Customer = () => {
     const handlePhoneNumber = (event) => {
         setPhoneNumber(event.target.value);
     }
-    const handleMaritalStatus = (event) => {
-        setMaritalStatus(event.target.value);
-    }
+   
     const handleGender = (event) => {
         setGender(event.target.value);
     }
-    const handleCity = (event) => {
-        setCity(event.target.value);
-    }
-    const handlePostCode = (event) => {
-        setPostCode(event.target.value);
-    }
+   
+ 
     const getlist = async () => { 
         try {
             setLoading(true);
@@ -71,10 +63,9 @@ const Customer = () => {
                  setFirstName(response.firstname);
                  setLastName(response.lastname);
                  setPhoneNumber(response.phonenumber);
-                 setMaritalStatus(response.maritalstatus);
+               
                  setGender(response.gender);
-                 setCity(response.city);
-                 setPostCode(response.postcode);
+             
                  setOpen(true);
             } catch (error) {
                 toast.error(error.message);
@@ -96,9 +87,6 @@ const Customer = () => {
             setFirstName('');
             setLastName('');
             setPhoneNumber('');
-            setPostCode('');
-            setCity('');
-            setMaritalStatus('Single');
             setGender('Female'); 
     }
 
@@ -108,10 +96,9 @@ const Customer = () => {
                      firstname,
                      lastname,
                      phonenumber,
-                     maritalstatus,
+                   
                      gender,
-                     city,
-                     postcode
+                   
                  }
                 if (formMode) {
                     await addCustomer(customer);
@@ -121,9 +108,8 @@ const Customer = () => {
                     setFirstName('');
                     setLastName('');
                     setPhoneNumber('');
-                    setPostCode('');
-                    setCity('');
-                    setMaritalStatus('Single');
+                   
+                 
                     setGender('Female'); 
                 }else {
                     await updateCustomer(custId, customer);
@@ -133,9 +119,8 @@ const Customer = () => {
                     setFirstName('');
                     setLastName('');
                     setPhoneNumber('');
-                    setPostCode('');
-                    setCity('');
-                    setMaritalStatus('Single');
+                   
+                   
                     setGender('Female'); 
                 }
             } catch (error) {
@@ -223,16 +208,14 @@ const Customer = () => {
                 firstname={firstname}
                 lastname={lastname}
                 phonenumber={phonenumber}
-                postcode={postcode}
-                city={city}
-                status={maritalstatus}
+               
+              
                 gender={gender}
                 changeFirstname={handleFirstName}
                 changeLastname={handleLastName}
                 changephonenumber={handlePhoneNumber}
-                changepostcode={handlePostCode}
-                changeCity={handleCity}
-                changeStatus={handleMaritalStatus}
+              
+             
                 changeGender={handleGender}
                 addCustomer={addCustomerHandler}
             />
